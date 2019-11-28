@@ -1,5 +1,5 @@
 {% set name = "wrfcube" %}
-{% set version = "1.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/mheikenfeld/{{name}}/archive/v{{version}}.tar.gz
-  sha256: ade2b745f9cdbe9f6e3b5008d9ccdff335e5377820c2325b2bd6a19311ee6aed
+  sha256: 6e647e86735626da63c5796d4713a66a633427b8e8665e92f3cb475fed9e9c0f
 
 build:
   noarch: python
