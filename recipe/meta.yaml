@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/mheikenfeld/{{name}}/archive/v{{version}}.tar.gz
+  url: https://github.com/mheikenfeld/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: fef752428754b82d43bfb39ec2526aba704f429214ccebc5e8356dde63af9cb6
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python
+    - python >={{ python_min }}
     - numpy
     - scipy
     - iris 
@@ -34,6 +34,7 @@ test:
     - wrfcube/tests/test_dummy.py
   requires:
     - pytest
+    - python {{ python_min }}
   commands:
     - pytest wrfcube/tests
 about:
