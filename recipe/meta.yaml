@@ -1,30 +1,31 @@
 {% set name = "wrfcube" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/mheikenfeld/{{name}}/archive/v{{version}}.tar.gz
-  sha256: fef752428754b82d43bfb39ec2526aba704f429214ccebc5e8356dde63af9cb6
+  url: https://github.com/mheikenfeld/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: 82cd3b6c8ab7864184f4dc4e83e2acbbfbc3795d93297ca437b1c67ebf6709cc
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - python
     - pip
     - setuptools
+    - setuptools-scm
   run:
     - python
     - numpy
     - scipy
-    - iris 
-    - xarray 
+    - iris
+    - xarray
     - cf_units
 
 test:
@@ -38,12 +39,12 @@ test:
     - pytest wrfcube/tests
 about:
   home: http://github.com/mheikenfeld/wrfcube
-  license:  BSD-3-Clause 
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Load data from WRF output files (NetCDF) to iris cubes'
+  summary: Load data from WRF output files (NetCDF) to iris cubes
 
-  description:  'Load data from WRF output files (NetCDF) to iris cubes'
+  description: Load data from WRF output files (NetCDF) to iris cubes
   doc_url: http://wrfcube.readthedocs.io/
   dev_url: https://github.com/mheikenfeld/wrfcube
 
